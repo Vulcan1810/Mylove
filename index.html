@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine Question</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #fce4ec;
+      color: #880e4f;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #d81b60;
+    }
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #4a148c;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="question">Will you be my Valentine?</h1>
+  <button onclick="reply('yes')">Yes</button>
+  <button onclick="reply('no')">No</button>
+  <div id="message"></div>
+
+  <script>
+    const variations = [
+      "Will you be my Valentine?",
+      "Be my Valentine, please?",
+      "Can I call you my Valentine?",
+      "How about being my Valentine?",
+      "Would you like to be my Valentine?",
+    ];
+
+    function reply(answer) {
+      const messageDiv = document.getElementById("message");
+      if (answer === "yes") {
+        document.getElementById("question").innerText = "Yay! Thank you for saying Yes! 💖";
+        messageDiv.innerText = "Happy Valentine's Day!";
+      } else {
+        const randomIndex = Math.floor(Math.random() * variations.length);
+        document.getElementById("question").innerText = variations[randomIndex];
+        messageDiv.innerText = "Oh no! Let me try again...";
+      }
+    }
+  </script>
+</body>
+</html>
